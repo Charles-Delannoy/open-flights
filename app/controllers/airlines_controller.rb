@@ -5,7 +5,7 @@ class AirlinesController < ApplicationController
   end
 
   def show
-    @airline = Airline.find(params[:id])
+    @airline = Airline.find_by(params[:slug])
   end
 
   def edit
