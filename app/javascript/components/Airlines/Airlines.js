@@ -37,7 +37,6 @@ const Airlines = () => {
     const findAirlines = async () => {
       const { data } = await axios.get('/api/v1/airlines.json');
       setAirlines(data.data);
-      console.log(airlines);
     }
     findAirlines();
   }, [airlines.length]);
