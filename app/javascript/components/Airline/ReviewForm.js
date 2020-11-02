@@ -78,6 +78,13 @@ const Wrapper = styled.div`
   background: #000;
   height: 100vh;
   padding-top: 100px;
+
+  @media only screen
+    and (min-device-width : 375px)
+    and (max-device-width : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+    height: 20vh;
+  }
 `;
 
 const SubmitBtn = styled.button`

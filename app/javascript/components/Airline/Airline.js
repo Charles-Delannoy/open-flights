@@ -9,6 +9,13 @@ const Wrapper = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media only screen
+    and (min-device-width : 375px)
+    and (max-device-width : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+    grid-template-columns: repeat(1,1fr);
+  }
 `;
 
 const Column = styled.div`
@@ -18,6 +25,13 @@ const Column = styled.div`
 
   &:last-child {
     background: #000
+  }
+
+  @media only screen
+    and (min-device-width : 375px)
+    and (max-device-width : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+    height: 50vh;
   }
 `;
 
