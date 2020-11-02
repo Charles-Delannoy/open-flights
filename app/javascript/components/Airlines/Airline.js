@@ -32,9 +32,8 @@ const LinkWrapper = styled.div`
     color: #fff;
     background: #000;
     border-radius: 4px;
-    padding: 10px 50px;
+    padding: 10px 90px;
     border: 1px solid #000;
-    width: 100%;
     text-decoration: none;
   }
 `;

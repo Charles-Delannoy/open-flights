@@ -6,8 +6,7 @@ import styled from 'styled-components'
 const Home = styled.div`
   text-align: center;
   max-width: 1200px;
-  margin-left: auto;
-  margin-rigth: auto;
+  margin: 0 auto;
 `;
 
 const Header = styled.div`
