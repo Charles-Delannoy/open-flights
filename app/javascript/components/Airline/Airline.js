@@ -70,7 +70,11 @@ const Airline = (props) => {
       const { data } = await axios.post('/api/v1/reviews', {review, airline_id});
       const included = [...airline.included, data.data];
 
+      const nbReviews = airline.included.length
+      const avg_score = ((airline.data.attributes.avg_score * nbReviews) + review.score) / (nbReviews + 1);
+
       setAirline({...airline, included});
+      airline.data.attributes.avg_score = avg_score.toFixed(2);
 
       setReview({title: '', description: '', score: 0});
     };
