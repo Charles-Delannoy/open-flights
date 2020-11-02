@@ -10,7 +10,7 @@ const Home = styled.div`
 `;
 
 const Header = styled.div`
-  padding: 100px 100px 10px 100px;
+  padding: 30px 50px 10px 100px;
   h1 {
     font-size: 42px;
   }
@@ -23,10 +23,17 @@ const Subheader = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   width: 100%;
   padding: 20px;
+
+  @media only screen
+    and (min-device-width : 375px)
+    and (max-device-width : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const Airlines = () => {
