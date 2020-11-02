@@ -1,4 +1,5 @@
 import React from 'react';
+import Review from './Review';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -28,6 +29,7 @@ const TotalOutOf = styled.div`
 const Header = ( { attributes, reviews }) => {
   const {name, image_url, avg_score} = attributes
   const total = reviews.length
+
   return (
     <Wrapper>
       <h1> <img src={image_url} alt={name}/> {name} </h1>

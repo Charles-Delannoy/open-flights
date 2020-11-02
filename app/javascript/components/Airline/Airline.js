@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Header from './Header';
 import ReviewForm from './ReviewForm';
+import Review from './Review';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -26,7 +27,7 @@ const Main = styled.div`
 
 const Airline = (props) => {
   const [airline, setAirline] = useState({});
-  const [review, setReview] = useState({});
+  const [review, setReview] = useState({title: '', description: '', score: 0});
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -41,8 +42,7 @@ const Airline = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-
-    setReview(Object.assign(review, {[e.target.name]: e.target.value}));
+    setReview(Object.assign({}, review, {[e.target.name]: e.target.value}));
   };
 
   const handleSubmit = (e) => {
@@ -57,8 +57,8 @@ const Airline = (props) => {
       const included = [...airline.included, data.data];
       console.log(included);
       setAirline({...airline, included});
-      console.log(airline);
-      setReview({});
+
+      setReview({title: '', description: '', score: 0});
     };
     postReview();
   };
@@ -68,6 +68,19 @@ const Airline = (props) => {
 
     setReview({...review, score});
   };
+
+  let reviews
+  if (loaded) {
+    reviews = airline.included.map((review, index) => {
+      console.log('mapping', review);
+      return (
+        <Review
+          key={index}
+          attributes={review.attributes}
+        />
+      );
+    });
+  }
 
   return (
     <Wrapper>
@@ -79,8 +92,8 @@ const Airline = (props) => {
                 attributes={airline.data.attributes}
                 reviews={airline.included}
               />
+              {reviews}
             </Main>
-            <div className='reviews'></div>
           </Column>
           <Column>
             <ReviewForm
