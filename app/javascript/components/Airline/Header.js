@@ -35,12 +35,26 @@ const GlobalScore = styled.div`
   align-items: center;
 `;
 
+const BackToList =  styled.a`
+  background: #0154a6;
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+`;
+
 const Header = ( { attributes, reviews }) => {
   const {name, image_url, avg_score} = attributes
   const total = reviews.length
 
   return (
     <Wrapper>
+      <BackToList href="/">Home</BackToList>
       <h1> <img src={image_url} alt={name}/> {name} </h1>
       <div>
         <TotalReviews>{total} User Reviews</TotalReviews>
