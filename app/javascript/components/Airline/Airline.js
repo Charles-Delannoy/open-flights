@@ -55,7 +55,7 @@ const Airline = (props) => {
     const postReview = async () => {
       const { data } = await axios.post('/api/v1/reviews', {review, airline_id});
       const included = [...airline.included, data.data];
-      console.log(included);
+
       setAirline({...airline, included});
 
       setReview({title: '', description: '', score: 0});
@@ -72,7 +72,6 @@ const Airline = (props) => {
   let reviews
   if (loaded) {
     reviews = airline.included.map((review, index) => {
-      console.log('mapping', review);
       return (
         <Review
           key={index}

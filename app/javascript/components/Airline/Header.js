@@ -1,6 +1,7 @@
 import React from 'react';
 import Review from './Review';
 import styled from 'styled-components';
+import Rating from '../Rating/Rating';
 
 const Wrapper = styled.div`
   padding: 50px 100px 50px 0;
@@ -21,9 +22,17 @@ const TotalReviews = styled.div`
 `;
 
 const TotalOutOf = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 10px;
+`;
+
+const GlobalScore = styled.div`
   font-size: 18px;
   padding: 10px 0;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 `;
 
 const Header = ( { attributes, reviews }) => {
@@ -36,7 +45,10 @@ const Header = ( { attributes, reviews }) => {
       <div>
         <TotalReviews>{total} User Reviews</TotalReviews>
         <div className='star-rating'></div>
-        <TotalOutOf>{avg_score} out of 5</TotalOutOf>
+        <GlobalScore>
+          <TotalOutOf>{avg_score} out of 5:</TotalOutOf>
+          <Rating score={avg_score} />
+        </GlobalScore>
       </div>
     </Wrapper>
   );
